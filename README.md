@@ -2,6 +2,9 @@
 
 > Quick start for modern LaTeXing for an IEEE conference, based on the [Manuscript Template for Conference Proceedings](https://www.ieee.org/conferences_events/conferences/publishing/templates.html).
 
+Please be aware that this template is optimized for overleaf, which [is based on TeXLive 2020](https://de.overleaf.com/blog/tex-live-2020-now-available).
+In case you are running a later TeXLive version (or use MiKTeX), please regenerate the template with the help of the [latex template generator].
+
 The official template is distributed via CTAN as the [IEEEtran package](https://ctan.org/pkg/ieeetran), which is actively maintained.
 However, de-facto configurations (hyperref) and modern features of latex (microtype) are not configured.
 This template does it.
@@ -10,7 +13,13 @@ This template is for the conferences.
 It is based on the `bare_conf_compsoc.tex` distributed by IEEE.
 In case you need other configurations, please adapt `paper-conference.tex` or run the [latex template generator].
 
-Compile it using
+To build the whole document, execute following command.
+Note that this requires a working perl installation.
+
+    latexmk paper
+
+In case something goes wrong, you can instruct the LaTeX compiler to stop at the first error:
+
 
     pdflatex paper
 

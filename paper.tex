@@ -1,4 +1,5 @@
 % This template has been tested with IEEEtran of 2015.
+
 % !TeX spellcheck = en-US
 % !TeX encoding = utf8
 % !TeX program = pdflatex
@@ -9,9 +10,8 @@
 % For the final version, replace "draftcls" by "final"
 \documentclass[conference,a4paper]{IEEEtran}[2015/08/26]
 
-% Balance the last page
-% The pbalance package (see https://ctan.org/pkg/pbalance) "just works" (in contrast to balance.sty or other solutions)
-\usepackage{pbalance}
+% Balance the last page using the balance package (see https://ctan.org/pkg/balance)
+\usepackage{balance}
 
 
 % backticks (`) are rendered as such in verbatim environments.
@@ -179,7 +179,6 @@
   {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
 }
 
-
 % For easy quotations: \enquote{text}
 % This package is very smart when nesting is applied, otherwise textcmds (see below) provides a shorter command
 \usepackage[autostyle=true]{csquotes}
@@ -231,13 +230,12 @@
 % Compatiblity with package fixmetodonotes
 \newcommand{\TODO}[1]{\commentatside{#1}}
 
-
 % Put footnotes below floats
 % Source: https://tex.stackexchange.com/a/32993/9075
 \usepackage{stfloats}
 \fnbelowfloat
 
-\usepackage[group-minimum-digits=4,per-mode=fraction]{siunitx}
+\usepackage[group-four-digits,per-mode=fraction]{siunitx}
 
 \addto\extrasgerman{\sisetup{locale = DE}}
 
@@ -291,7 +289,6 @@
   <12->   MnSymbolC12%
 }{}
 \DeclareMathSymbol{\powerset}{\mathord}{MnSyC}{180}
-
 
 \usepackage{xspace}
 %\newcommand{\eg}{e.\,g.\xspace}
@@ -380,14 +377,14 @@
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
-\subsection{Introduction}
+\section{Introduction}
 \label{sec:introduction}
 \lipsum[1-3]\todo{Refine me}
 
 The remainder of the paper starts with a presentation of related work (\cref{sec:relatedwork}).
 It is followed by a presentation of hints on \LaTeX{} (\cref{sec:latexhints}).Finally, a conclusion is drawn and outlook on future work is made (\cref{sec:outlook}).
 
-\subsection{Related Work}
+\section{Related Work}
 \label{sec:relatedwork}
 
 Winery~\cite{Winery} is a graphical \commentontext{modeling}{modeling with one ``l'', because of AE} tool.
@@ -535,7 +532,7 @@ Cleveref demonstration: Cref at beginning of sentence, cref in all other cases.
 
 \begin{figure}
   \centering
-  \includegraphics[width=.8\columnwidth]{example-image-golden}
+  \includegraphics[width=.8\linewidth]{example-image-golden}
   \caption[Simple Figure]{Simple Figure. Based on \citet{mwe}.}
   \label{fig:label}
 \end{figure}
@@ -548,9 +545,9 @@ See \cref{fig:16x9} as an example.
 \begin{ltgexample}
 \begin{figure*}
   \centering
-  % note that \textwidth is used instead of \columnwidth
-  % This ensures that the graphics width is 60% of the "page", and not just 60% of the current text column
-  % See https://tex.stackexchange.com/a/16956/9075 for details
+  % note that \textwidth is used instead of \linewidth
+  % This ensures that the graphics width is 60% of the "page" (text block), and not just 60% of the current text column
+  % See https://tex.stackexchange.com/a/17085/9075 for details
   \includegraphics[width=.6\textwidth]{example-image-16x9}
   \caption{16x9 Figure}
   \label{fig:16x9}
@@ -565,10 +562,10 @@ An example of two sub figures is shown in \cref{fig:two_sub_figures}.
 \begin{ltgexample}
 \begin{figure*}[!b]
     \centering
-    \subfloat[Case I]{\includegraphics[width=.4\columnwidth]{example-image-a}%
+    \subfloat[Case I]{\includegraphics[width=.4\linewidth]{example-image-a}%
     \label{fig:first_case}}
   \hfil
-    \subfloat[Case II]{\includegraphics[width=.4\columnwidth]{example-image-b}%
+    \subfloat[Case II]{\includegraphics[width=.4\linewidth]{example-image-b}%
     \label{fig:second_case}}
   \caption{Example figure with two sub figures.}
   \label{fig:two_sub_figures}
@@ -587,10 +584,10 @@ An example is shown in \cref{fig:two_sub_figures_ieee}.
 \begin{ltgexample}
 \begin{figure*}[!b]
     \centering
-    \subfloat[]{\includegraphics[width=.4\columnwidth]{example-image-a}%
+    \subfloat[]{\includegraphics[width=.4\linewidth]{example-image-a}%
     \label{fig:first_case_ieee}}
   \hfil
-    \subfloat[]{\includegraphics[width=.4\columnwidth]{example-image-b}%
+    \subfloat[]{\includegraphics[width=.4\linewidth]{example-image-b}%
     \label{fig:second_case_ieee}}
   \caption{Example figure with two sub figures. IEEE style. (a) The first case. (b) The second case.}
   \label{fig:two_sub_figures_ieee}
@@ -632,7 +629,7 @@ Note that IEEE does not support \verb+\begin{table}+, one has to use \verb+\begi
 \end{tabular}
 \end{center}
 \end{figure}
- \end{ltgexample}
+\end{ltgexample}
 
 
 \subsection{Source Code}
@@ -771,10 +768,10 @@ One can also input backquotes in verbatim text: \verb|`test`|.
 \label{sec:outlook}
 \lipsum[1-2]
 
-
 % regular IEEE prefers the singular form
 \section*{Acknowledgment}
-\ldots
+
+Identification of funding sources and other support, and thanks to individuals and groups that assisted in the research and the preparation of the work should be included in an acknowledgment section, which is placed just before the reference section in your document \cite{acmart}.
 
 %%% ===============================================================================
 %%% Bibliography
@@ -806,7 +803,7 @@ See \url{https://help.jabref.org/en/CleanupEntries} for an overview of the clean
 All links were last followed on October 5, 2020.
 
 %%% ===============================================================================
-%\appendix 
+%\appendix
 %\addcontentsline{toc}{chapter}{APPENDICES}
 
 %\listoffigures
